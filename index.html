@@ -1,0 +1,27 @@
+<html><head>
+    <script src="https://widget.cloudpayments.ru/bundles/cloudpayments"></script>
+    </head><body>
+    
+    <script>
+    this.pay = function () {
+        var payments = new cp.CloudPayments();
+        payments.charge({ // options
+                publicId: 'pk_c0c6be49325cb214b09f3f98815bf',
+                description: 'Оплата услуги замена трубки домофона на сайте test.ru',
+                amount: 3,
+                currency: 'RUB',
+                invoiceId: '1234567',
+                accountId: 'null',
+                data: {
+                    myProp: 'myProp value'
+                }
+            },
+            function (options) { // success
+            },
+            function (reason, options) { // fail
+                console.log(reason);
+            });
+    };
+    pay()
+        </script>
+    </body></html>
