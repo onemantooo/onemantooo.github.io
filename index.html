@@ -1,27 +1,163 @@
-<html><head>
-    <script src="https://widget.cloudpayments.ru/bundles/cloudpayments"></script>
-    </head><body>
-    
+<html>
+
+<head>
+    <style>
+        .container {
+            display: flex;
+            width: 100%;
+        }
+
+        .controls {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            padding-right: 20px;
+        }
+
+        .resultBlock {
+            padding: 20px;
+            background: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="controls">
+            <label for="name">Имя</label>
+            <input id="name" value="Дмитрий">
+            <label for="surname">Фамилия</label>
+            <input id="surname" value="Спиридонов">
+            <label for="position">Должность</label>
+            <input id="position" value="CEO">
+            <label for="phone">Телефон</label>
+            <input id="phone" value="+ 7 999 999 99 99">
+
+            <button type="button" onclick="copy()">Копировать подпись в буфер обмена</button>
+        </div>
+        <div class="resultBlock">
+            <span>Превью:</span>
+            <div class="result" id="signResult">
+                <table id="sign"
+                    style="    border-spacing: 0px;background:#fff;padding:62px 45px 75px 0px;color:rgb(0,0,0);font-size:medium;font-family:'Stolzl','Roboto','RobotoDraft','Helvetica','Arial',sans-serif;background-color:#fff;">
+                    <tbody>
+                        <tr>
+
+                            <td width="160" valign="middle" style="width:160px;vertical-align:middle">
+                                <a href="#" style="pointer-events:none; cursor:default; "><img
+                                        src="https://i.imgur.com/trDQ2d0.png"
+                                        style="padding-right:45px;color:rgb(34,34,34);font-family:Arial,Helvetica,sans-serif;font-size:small;white-space:normal"
+                                        width="164" height="150"></a>
+
+                            </td>
+                            <td valign="top"
+                                style="vertical-align:top;padding-left:35px;padding-top:0px;padding-bottom:0px;border-left:1px solid #0b1e46;white-space:nowrap; min-height:1px;height:1px;">
+                                <div style="height: 100%">
+                                    <table style="min-height:100%;border-spacing: 0px;">
+                                        <tbody>
+                                            <tr valign="top" style="padding:0px;">
+                                                <td
+                                                    style="font-family:'Stolzl','Roboto','RobotoDraft','Helvetica','Arial',sans-serif; padding:0px">
+                                                    <div
+                                                        style="font-weight:bold;font-size:20px;color:rgb(57,57,98);letter-spacing:0px;line-height:20px;padding-bottom:8px;">
+                                                        <span id="nameValue">Дмитрий</span> <span
+                                                            id="surnameValue">Спиридонов</span>
+                                                    </div>
+                                                    <div style="font-size:14px;color:#0b1e46;letter-spacing:0px;line-height:14px"
+                                                        id="positionValue">CEO</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div style="color:#545c6b;font-size:14px;padding-top:21px;font-family:'Stolzl','Roboto','RobotoDraft','Helvetica','Arial',sans-serif; "
+                                                        id="phoneValue">
+                                                        +7 999 999 99 99
+                                                    </div>
+                                                    <div
+                                                        style="color:#545c6b;font-size:14px; font-family:'Stolzl','Roboto','RobotoDraft','Helvetica','Arial',sans-serif;">
+                                                        <a style="color:#6496dc" href="https://cp.ru"
+                                                            target="_blank">cp.ru</a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div style="font-size:14px;color:#0b1e46;letter-spacing:0px;line-height:17px;font-size:14px;font-weight:bold;padding-top:23px; padding-bottom:7px;font-family:'Stolzl','Roboto','RobotoDraft','Helvetica','Arial',sans-serif;background-color:#fff;"
+                                                        id="sloganValue">ВАС НЕ ДОГОНЯТ</div>
+                                                </td>
+                                            </tr>
+                                            <tr style="padding:0px;" valign="bottom">
+                                                <td style="padding:0px;">
+                                                    <div>
+                                                        <a href="https://www.facebook.com/cloudpayments/"
+                                                            style="color:#6496dc;text-decoration:none" target="_blank">
+                                                            <img src="https://i.imgur.com/4Pe6LYZ.png" width="28px"
+                                                                alt="                                                                                             ">
+                                                        </a>
+                                                        <a href="https://vk.com/cloudpayments"
+                                                            style="color:#6496dc;text-decoration:none" target="_blank">
+                                                            <img src="https://i.imgur.com/TuS2dfZ.png" width="28px">
+                                                        </a>
+                                                        <a href="https://www.instagram.com/cloudpayments/"
+                                                            style="color:#6496dc;text-decoration:none" target="_blank">
+                                                            <img src="https://i.imgur.com/dqzAZj4.png" width="28px">
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
     <script>
-    this.pay = function () {
-        var payments = new cp.CloudPayments();
-        payments.charge({ // options
-                publicId: 'pk_c0c6be49325cb214b09f3f98815bf',
-                description: 'Оплата услуги замена трубки домофона на сайте test.ru',
-                amount: 3,
-                currency: 'RUB',
-                invoiceId: '1234567',
-                accountId: 'null',
-                data: {
-                    myProp: 'myProp value'
-                }
-            },
-            function (options) { // success
-            },
-            function (reason, options) { // fail
-                console.log(reason);
-            });
-    };
-    pay()
-        </script>
-    </body></html>
+        let nameControl = document.getElementById("name");
+        let nameElement = document.getElementById("nameValue");
+
+        let surnameControl = document.getElementById("surname");
+        let surnameElement = document.getElementById("surnameValue");
+
+        let positionControl = document.getElementById("position");
+        let positionElement = document.getElementById("positionValue");
+
+        let phoneControl = document.getElementById("phone");
+        let phoneElement = document.getElementById("phoneValue");
+
+        nameControl.addEventListener("input", (e) => {
+            nameElement.innerText = e.target.value;
+        });
+
+        surnameControl.addEventListener("input", (e) => {
+            surnameElement.innerText = e.target.value;
+        });
+
+        positionControl.addEventListener("input", (e) => {
+            positionElement.innerText = e.target.value;
+        });
+
+        phoneControl.addEventListener("input", (e) => {
+            phoneElement.innerText = e.target.value;
+        });
+
+        function copy() {
+            const sign = document.getElementById("signResult");
+            const selection = window.getSelection();
+            const range = document.createRange();
+            range.selectNodeContents(sign);
+            selection.removeAllRanges();
+            selection.addRange(range);
+
+            document.execCommand("copy");
+            selection.removeAllRanges();
+        }
+    </script>
+</body>
+
+</html>
