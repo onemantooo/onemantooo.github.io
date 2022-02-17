@@ -19,6 +19,11 @@
             background: #ddd;
         }
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/6.4.2/imask.min.js"
+        integrity="sha512-l0grYOI8XZga5TajPOiqLrQVCKrdh+k0QSEtS+cpJlNeI8Nu9GOhsVaFyFQuPQfYp02GnhsyHqkPR7P7BTKYAQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
 </head>
 
 <body>
@@ -89,7 +94,8 @@
                                             <td style="padding:0px;">
                                                 <div style="height: 28px; min-height:28px;">
                                                     <a href="https://www.facebook.com/cloudpayments/"
-                                                        style="color:#fff;text-decoration:none" target="_blank"><img src="https://i.imgur.com/4Pe6LYZ.png" width="28px"></a>
+                                                        style="color:#fff;text-decoration:none" target="_blank"><img
+                                                            src="https://i.imgur.com/4Pe6LYZ.png" width="28px"></a>
                                                     <a href="https://vk.com/cloudpayments"
                                                         style="color:#fff;text-decoration:none" target="_blank">
                                                         <img src="https://i.imgur.com/TuS2dfZ.png" width="28px">
@@ -124,6 +130,11 @@
 
         let phoneControl = document.getElementById("phone");
         let phoneElement = document.getElementById("phoneValue");
+
+        var maskOptions = {
+            mask: '+0 (000) 000-00-00'
+        };
+        var mask = IMask(phoneControl, maskOptions);
 
         nameControl.addEventListener("input", (e) => {
             nameElement.innerText = e.target.value;
