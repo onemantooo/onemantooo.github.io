@@ -117,7 +117,7 @@ if (!("NDEFReader" in window))
     log("> Scan started");
 
     ndef.addEventListener("readingerror", (e) => {
-      log(JSON.stringify(e, null, 2));
+      log(e.message);
       log("Argh! Cannot read data from the NFC tag. Try another one?");
     });
 
