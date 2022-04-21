@@ -1,4 +1,4 @@
-<html>
+﻿<html>
 
 <head>
     <style>
@@ -19,129 +19,144 @@
             background: #ddd;
         }
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/6.4.2/imask.min.js"
+            integrity="sha512-l0grYOI8XZga5TajPOiqLrQVCKrdh+k0QSEtS+cpJlNeI8Nu9GOhsVaFyFQuPQfYp02GnhsyHqkPR7P7BTKYAQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
 </head>
 
 <body>
-    <div class="container">
-        <div class="controls">
-            <label for="name">Имя</label>
-            <input id="name" value="Дмитрий">
-            <label for="surname">Фамилия</label>
-            <input id="surname" value="Спиридонов">
-            <label for="position">Должность</label>
-            <input id="position" value="CEO">
-            <label for="phone">Телефон</label>
-            <input id="phone" value="+ 7 999 999 99 99">
+<div class="container">
+    <div class="controls">
+        <label for="name">Имя</label>
+        <input id="name" value="Дмитрий">
+        <label for="surname">Фамилия</label>
+        <input id="surname" value="Спиридонов">
+        <label for="position">Должность</label>
+        <input id="position" value="CEO">
+        <label for="phone">Телефон</label>
+        <input id="phone" value="+ 7 999 999 99 99">
 
-            <button type="button" onclick="copy()">Копировать подпись в буфер обмена</button>
-        </div>
-        <div class="resultBlock">
-            <span>Превью:</span>
-            <div class="result" id="signResult">
-                <table id="sign"
-                    style="    border-spacing: 0px;background:#fff;padding:62px 45px 75px 0px;color:rgb(0,0,0);font-size:medium;font-family:'Stolzl','Roboto','RobotoDraft','Helvetica','Arial',sans-serif;background-color:#fff;">
-                    <tbody>
-                        <tr>
+        <button type="button" onclick="copy()">Копировать подпись в буфер обмена</button>
+    </div>
+    <div class="resultBlock">
+        <span>Превью:</span>
+        <div class="result" id="signResult">
+            <table bgcolor="transparent" border="0" cellpadding="0" cellspacing="0" style="padding-top: 62px; background-color: transparent; border: 0">
+                <tbody style="background-color: transparent; border: 0">
+                <tr style="background-color: transparent; border: 0">
+                    <td style="background-color: transparent; border: 0"></td>
+                </tr>
+                </tbody>
+            </table>
+            <table id="sign"
+                   bgcolor="white"
+                   style="width: 500px; background-color: rgb(255, 255, 255); border-spacing: 0px;color:rgb(0,0,0);font-size:medium;font-family:'Stolzl','Roboto','RobotoDraft','Helvetica','Arial',sans-serif;overflow: hidden;">
+                <tbody style="background-color: rgb(255, 255, 255);">
+                <tr style="background-color: rgb(255, 255, 255);">
+                    <td width="160" valign="middle" style="width:160px;vertical-align:middle;padding-right:45px;">
+                        <a href="https://cloudpayments.eu" style="pointer-events:none; cursor:default; ">
+                            <img
+                                    src="https://i.imgur.com/trDQ2d0.png"
+                                    style="width: 164px; height: 150px;color:rgb(34,34,34);font-family:Arial,Helvetica,sans-serif;font-size:small;white-space:normal"
+                                    width="164" height="150"></a>
 
-                            <td width="160" valign="middle" style="width:160px;vertical-align:middle">
-                                <a href="https://cp.ru" style="pointer-events:none; cursor:default; "><img
-                                        src="https://i.imgur.com/trDQ2d0.png"
-                                        style="padding-right:45px;color:rgb(34,34,34);font-family:Arial,Helvetica,sans-serif;font-size:small;white-space:normal"
-                                        width="164" height="150"></a>
+                    </td>
+                    <td width="250" valign="top"
+                        style="background-color: rgb(255, 255, 255);vertical-align:top;padding-left:35px;padding-top:0px;padding-bottom:0px;border-left:1px solid #0b1e46;white-space:nowrap; min-height:1px;height:1px;">
+                        <table style="min-height:100%;border-spacing: 0px;">
+                            <tbody>
+                            <tr valign="top" style="padding:0px;">
+                                <td
+                                        style="font-family:'Stolzl','Roboto','RobotoDraft','Helvetica','Arial',sans-serif; padding:0px">
+                                    <div
+                                            style="font-weight:bold;font-size:20px;color:rgb(57,57,98);letter-spacing:0px;line-height:20px;padding-bottom:8px;">
+                                        <span id="nameValue">Дмитрий</span> <span
+                                            id="surnameValue">Спиридонов</span>
+                                    </div>
+                                    <div style="font-size:14px;color:#0b1e46;letter-spacing:0px;line-height:14px"
+                                         id="positionValue">CEO</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding-top:21px;">
+                                    <div style="color:#545c6b;font-size:14px;font-family:'Stolzl','Roboto','RobotoDraft','Helvetica','Arial',sans-serif; "
+                                         id="phoneValue">
+                                        +7 (999) 999-99-99
+                                    </div>
+                                    <div
+                                            style="color:#545c6b;font-size:14px; font-family:'Stolzl','Roboto','RobotoDraft','Helvetica','Arial',sans-serif;">
+                                        <a style="color:#6496dc" href="https://cloudpayments.eu"
+                                           target="_blank">cloudpayments.eu</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding-top:23px; padding-bottom:7px;">
+                                    <div style="font-size:14px;color:#0b1e46;letter-spacing:0px;line-height:17px;font-size:14px;font-weight:bold;font-family:'Stolzl','Roboto','RobotoDraft','Helvetica','Arial',sans-serif;background-color: rgb(255, 255, 255);"
+                                         id="sloganValue">ONLINE PAYMENTS PROCESSING</div>
+                                </td>
+                            </tr>
 
-                            </td>
-                            <td valign="top"
-                                style="vertical-align:top;padding-left:35px;padding-top:0px;padding-bottom:0px;border-left:1px solid #0b1e46;white-space:nowrap; min-height:1px;height:1px;">
-                                <table style="min-height:100%;border-spacing: 0px;">
-                                    <tbody>
-                                        <tr valign="top" style="padding:0px;">
-                                            <td
-                                                style="font-family:'Stolzl','Roboto','RobotoDraft','Helvetica','Arial',sans-serif; padding:0px">
-                                                <div
-                                                    style="font-weight:bold;font-size:20px;color:rgb(57,57,98);letter-spacing:0px;line-height:20px;padding-bottom:8px;">
-                                                    <span id="nameValue">Дмитрий</span> <span
-                                                        id="surnameValue">Спиридонов</span>
-                                                </div>
-                                                <div style="font-size:14px;color:#0b1e46;letter-spacing:0px;line-height:14px"
-                                                    id="positionValue">CEO</div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div style="color:#545c6b;font-size:14px;padding-top:21px;font-family:'Stolzl','Roboto','RobotoDraft','Helvetica','Arial',sans-serif; "
-                                                    id="phoneValue">
-                                                    +7 (999) 999-99-99
-                                                </div>
-                                                <div
-                                                    style="color:#545c6b;font-size:14px; font-family:'Stolzl','Roboto','RobotoDraft','Helvetica','Arial',sans-serif;">
-                                                    <a style="color:#6496dc" href="https://cloudpayments.eu"
-                                                        target="_blank">cloudpayments.eu</a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-
-                                        </tr>
-                                        <tr style="padding:0px;" valign="bottom">
-                                            <td>
-                                                <div style="font-size:14px;color:#0b1e46;letter-spacing:0px;line-height:10px;font-size:14px;font-weight:bold;padding-top:23px; padding-bottom:0px;font-family:'Stolzl','Roboto','RobotoDraft','Helvetica','Arial',sans-serif;background-color:#fff;"
-                                                    id="sloganValue">ONLINE PAYMENTS PROCESSING</div>
-                                            </td>
-                                        </tr>
-
-                                    </tbody>
-                                </table>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <table border="0" cellpadding="0" cellspacing="0" style="padding-bottom: 62px; background-color: transparent; border: 0">
+                <tbody style="background-color: transparent; border: 0">
+                <tr style="background-color: transparent; border: 0">
+                    <td style="background-color: transparent; border: 0"></td>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </div>
+</div>
 
-    <script>
-        let nameControl = document.getElementById("name");
-        let nameElement = document.getElementById("nameValue");
+<script>
+    let nameControl = document.getElementById("name");
+    let nameElement = document.getElementById("nameValue");
 
-        let surnameControl = document.getElementById("surname");
-        let surnameElement = document.getElementById("surnameValue");
+    let surnameControl = document.getElementById("surname");
+    let surnameElement = document.getElementById("surnameValue");
 
-        let positionControl = document.getElementById("position");
-        let positionElement = document.getElementById("positionValue");
+    let positionControl = document.getElementById("position");
+    let positionElement = document.getElementById("positionValue");
 
-        let phoneControl = document.getElementById("phone");
-        let phoneElement = document.getElementById("phoneValue");
+    let phoneControl = document.getElementById("phone");
+    let phoneElement = document.getElementById("phoneValue");
 
-        nameControl.addEventListener("input", (e) => {
-            nameElement.innerText = e.target.value;
-        });
+    nameControl.addEventListener("input", (e) => {
+        nameElement.innerText = e.target.value;
+    });
 
-        surnameControl.addEventListener("input", (e) => {
-            surnameElement.innerText = e.target.value;
-        });
+    surnameControl.addEventListener("input", (e) => {
+        surnameElement.innerText = e.target.value;
+    });
 
-        positionControl.addEventListener("input", (e) => {
-            positionElement.innerText = e.target.value;
-        });
+    positionControl.addEventListener("input", (e) => {
+        positionElement.innerText = e.target.value;
+    });
 
-        phoneControl.addEventListener("input", (e) => {
-            phoneElement.innerText = e.target.value;
-        });
+    phoneControl.addEventListener("input", (e) => {
+        phoneElement.innerText = e.target.value;
+    });
 
-        function copy() {
-            const sign = document.getElementById("signResult");
-            const selection = window.getSelection();
-            const range = document.createRange();
-            range.selectNodeContents(sign);
-            selection.removeAllRanges();
-            selection.addRange(range);
+    function copy() {
+        const sign = document.getElementById("signResult");
+        const selection = window.getSelection();
+        const range = document.createRange();
+        range.selectNodeContents(sign);
+        selection.removeAllRanges();
+        selection.addRange(range);
 
-            document.execCommand("copy");
-            selection.removeAllRanges();
-        }
-    </script>
+        document.execCommand("copy");
+        selection.removeAllRanges();
+    }
+</script>
 </body>
 
 </html>
