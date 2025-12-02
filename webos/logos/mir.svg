@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 25" width="60" height="25">
+  <defs>
+    <linearGradient id="mirGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00B4E6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0E9C49;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect fill="url(#mirGrad)" width="60" height="25" rx="3"/>
+  <text x="30" y="17" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">МИР</text>
+</svg>

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 25" width="60" height="25">
+  <rect fill="#004B87" width="60" height="25" rx="3"/>
+  <path d="M 15 12 L 20 17 L 30 7" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="40" y="17" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="white" text-anchor="middle">VeriSign</text>
+</svg>
